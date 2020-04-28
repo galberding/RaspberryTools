@@ -44,7 +44,7 @@ cat key.pub > authorized_keys
 ## General Info
 * Take a look at the TODOs in flashimage.sh
 * Raspberry Pi credentials: **Username: pi, Password: raspberry**
-* You can usually reach a raspberry (connected to the network) by its hostname:
+* You can usually reach a raspberry (connected to the network) by its hostname and the suffix ```.local```
 ```bash
 # SSH to pi with default hostname
 ssh pi@raspberry.local
