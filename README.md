@@ -21,8 +21,9 @@ wget https://downloads.raspberrypi.org/raspbian_lite_latestcd
 unzip 
 
 ```
-* Adapt path in ```flashimage.sh**
-**Note: We assume that the sd card is formated(eg. with gparted)**
+* Adapt path in ```flashimage.sh```
+
+**Note: The sd card should be formated (eg. with gparted)**
 
 ### WLAN
 * Adapt the ```wpa_supplicant.conf```
@@ -42,7 +43,7 @@ cat key.pub > authorized_keys
 
 ## General Info
 * Take a look at the TODOs in flashimage.sh
-* Raspberry Pi credentials: Username: pi, Password: raspberry
+* Raspberry Pi credentials: **Username: pi, Password: raspberry**
 * You can usually reach a raspberry (connected to the network) by its hostname:
 ```bash
 # SSH to pi with default hostname
