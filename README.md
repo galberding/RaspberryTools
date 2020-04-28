@@ -17,8 +17,8 @@ The image write process can easily **override your harddrive** if you set a wron
 * create directory and get latest [Raspbean Buster Lite](https://www.raspberrypi.org/downloads/raspbian/) image 
 ```
 mkdir -p images && cd images
-wget https://downloads.raspberrypi.org/raspbian_lite_latestcd 
-unzip 
+wget https://downloads.raspberrypi.org/raspbian_lite_latest 
+unzip raspbian_lite_latest
 
 ```
 * Adapt path in ```flashimage.sh```
