@@ -13,12 +13,15 @@ DISC=/dev/mmcblk0 #TODO path to device (use lsblk to find it, use the device not
 BOOT=/media/$USER/boot
 ROOTFS=/media/$USER/rootfs
 CURRENT_DIR=`pwd`
-WPA_SUPPLICANT=$CURRENT_DIR/wpa_supplicant.conf
-AUTHORIZED_KEYS=$CURRENT_DIR/authorized_keys
-IMAGE=$CURRENT_DIR/images/2020-02-05-raspbian-buster-lite.img #TODO
+WPA_SUPPLICANT=$CURRENT_DIR/secret/wpa_supplicant.conf
+AUTHORIZED_KEYS=$CURRENT_DIR/secret/authorized_keys
+IMAGE=$CURRENT_DIR/images/2020-02-13-raspbian-buster-lite.img #TODO
 DEFAULT_NAME=raspberrypi
 PI_ETC=/media/$USER/rootfs/etc
-    
+HOSTS_FILE=hosts
+HOSTNAME_FILE=hostname
+MOTION_SCRIPT=$CURRENT_DIR/setup_motioneye.sh
+
 function confirmation() {
     read -p "Continue (y/n)?" choice
     case "$choice" in 
@@ -28,7 +31,7 @@ function confirmation() {
     esac
 }
 
-echo "Writing image to sd card"
+echo  "Writing image $IMAGE to sd card?"
 confirmation
 if [ "$?" = 1 ]
 then
@@ -90,6 +93,22 @@ then
     sudo sed -i -e "s/$DEFAULT_NAME/$piname/g" $PI_ETC/$HOSTS_FILE
     sudo sed -i -e "s/$DEFAULT_NAME/$piname/g" $PI_ETC/$HOSTNAME_FILE
 
+else
+    # echo "Continue with SSH and WLAN configuration"
+    sleep 1
+fi
+
+
+echo "Copy Motion install script?"
+confirmation
+if [ "$?" = 1 ]
+then
+    udisksctl mount -b ${DISC}p1
+    udisksctl mount -b ${DISC}p2
+
+    echo -n "Copy installation script ..."
+    cp $MOTION_SCRIPT $ROOTFS/home/pi/
+    echo " done!"
 else
     # echo "Continue with SSH and WLAN configuration"
     sleep 1
