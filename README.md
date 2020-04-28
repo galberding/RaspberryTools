@@ -17,12 +17,13 @@ The image write process can easily **override your harddrive** if you set a wron
 * create directory and get latest [Raspbean Buster Lite](https://www.raspberrypi.org/downloads/raspbian/) image 
 ```
 mkdir -p images && cd images
-wget https://downloads.raspberrypi.org/raspbian_lite_latestcd 
-unzip 
+wget https://downloads.raspberrypi.org/raspbian_lite_latest 
+unzip raspbian_lite_latest
 
 ```
-* Adapt path in ```flashimage.sh**
-**Note: We assume that the sd card is formated(eg. with gparted)**
+* Adapt path in ```flashimage.sh```
+
+**Note: The sd card should be formated (eg. with gparted)**
 
 ### WLAN
 * Adapt the ```wpa_supplicant.conf```
@@ -42,8 +43,8 @@ cat key.pub > authorized_keys
 
 ## General Info
 * Take a look at the TODOs in flashimage.sh
-* Raspberry Pi credentials: Username: pi, Password: raspberry
-* You can usually reach a raspberry (connected to the network) by its hostname:
+* Raspberry Pi credentials: **Username: pi, Password: raspberry**
+* You can usually reach a raspberry (connected to the network) by its hostname and the suffix ```.local```
 ```bash
 # SSH to pi with default hostname
 ssh pi@raspberry.local
