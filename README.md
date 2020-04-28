@@ -7,6 +7,7 @@ This repository is intended to setup a working raspbian image as fast as possibl
 * Setup WLAN
 * Setup SSH (with key if you set it up correctly)
 * Change Hostname
+* Installation script for [MotionEye](https://github.com/ccrisan/motioneye/wiki/Install-On-Raspbian)
 
 ## Setup
 Only use the script **IF YOU KNOW WHAT YOU ARE DOING!!!!** 
@@ -47,5 +48,5 @@ cat key.pub > authorized_keys
 * You can usually reach a raspberry (connected to the network) by its hostname and the suffix ```.local```
 ```bash
 # SSH to pi with default hostname
-ssh pi@raspberry.local
+ssh pi@raspberrypi.local
 ```
